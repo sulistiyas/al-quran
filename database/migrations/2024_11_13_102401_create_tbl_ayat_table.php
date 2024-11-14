@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('tbl_ayat', function (Blueprint $table) {
             $table->id();
-            $table->integer('surah');
+            // $table->integer('surah');
+            $table->foreignId('surah')->nullable()->index('fk_tbl_ayat_to_tbl_master_surah');
             $table->integer('nomor');
             $table->text('ar');
             $table->text('tr');

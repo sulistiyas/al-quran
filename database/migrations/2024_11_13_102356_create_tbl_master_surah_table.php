@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tbl_master_surah', function (Blueprint $table) {
             $table->id();
-            $table->integer('nomor');
+            $table->bigInteger('nomor')->unique()->unsigned()->nullable();
             $table->text('nama');
             $table->string('nama_latin');
             $table->integer('jumlah_ayat');

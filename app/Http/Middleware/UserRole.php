@@ -16,11 +16,11 @@ class UserRole
     public function handle(Request $request, Closure $next, $roles): Response
     {
         if (auth()->user()->user_level == $roles) {
-            return redirect()->route('index_admin');
+            return $next($request);
         }
-        if (auth()->user()->user_level == $roles) {
-            return redirect()->route('index_user');
-        }
+        // if (auth()->user()->user_level == $roles) {
+        //     return redirect()->route('index_user');
+        // }
         return response()->view('auth.login');
     }
 }

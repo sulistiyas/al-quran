@@ -11,11 +11,6 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          @php
-              $user_id = Auth::user()->id;
-              // if women : pict women 
-              // if men : pict men
-          @endphp
           <img src="{{ asset('assets/dist/img/user.png') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
@@ -47,30 +42,40 @@
             </a>
           </li>
           {{-- User Management --}}
-            <li class="nav-item menu">
-                <a href="#" class="nav-link">
+            <li class="{{ Request::routeIs('index_users') ? 'nav-item menu-open' : 'nav-item menu' }}">
+                <a href="#" class="{{ Request::routeIs('index_users') ? 'nav-link active' : 'nav-link' }}">
                     <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            User Management
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
+                    <p>
+                      User Management
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('index_users') }}" class="{{ Request::routeIs('index_users') ? 'nav-link active' : 'nav-link' }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>User Data</p>
                         </a>
                     </li>
                 </ul>
-                {{-- <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Report</p>
-                    </a>
-                </li>
-                </ul> --}}
+            </li>
+            {{-- Quran --}}
+            <li class="{{ Request::routeIs('index_users') ? 'nav-item menu-open' : 'nav-item menu' }}">
+                <a href="#" class="{{ Request::routeIs('index_users') ? 'nav-link active' : 'nav-link' }}">
+                  <i class="fas fa-quran"></i>
+                  <p>
+                    Qur'an Dictionary
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('index_users') }}" class="{{ Request::routeIs('index_users') ? 'nav-link active' : 'nav-link' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>User Data</p>
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
       </nav>
@@ -81,7 +86,7 @@
       <form method="POST" action="{{ route('logout') }}" x-data>
         @csrf
         <button type="submit" class="btn btn-default"><i class="fas fa-power-off"></i></button>
-        <a href="{{ url('https://wa.me/+6282110873602') }}" class="btn btn-secondary hide-on-collapse pos-right" target="_blank">Contact Support</a>
+        <a href="#" class="btn btn-secondary hide-on-collapse pos-right" target="_blank">Contact Support</a>
       </form>
       {{-- <a href="{{ route('logout') }}" class="btn btn-link"><i class="fas fa-cogs"></i></a> --}}
       

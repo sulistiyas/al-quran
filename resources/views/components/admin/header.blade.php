@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
-  <meta charset="utf-8">
+  {{-- <meta charset="utf-8"> --}}
+  <meta http-equiv="Content-Language" content="ar-sa">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Al-Qur'an - APP</title>
   <link rel="icon" href="{{ asset('assets/dist/img/AdminLTELogo.png') }}" type="image/gif" sizes="16x16">
@@ -32,6 +34,7 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
   <!-- fullCalendar -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/fullcalendar/main.css') }}">
+  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed">
     <div class="wrapper">

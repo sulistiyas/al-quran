@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\QurAnController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -48,4 +49,8 @@ Route::middleware([
     Route::middleware(['auth', 'userRole:1'])->group(function () {
         Route::get('/User/Dash', [UserController::class, 'index'])->name('index_user');
     });
+
+    Route::get('/QurAn', [QurAnController::class, 'index'])->name('index_quran');
+    Route::get('/QurAn/Search', [QurAnController::class, 'search_page'])->name('search_page');
+    Route::get('/QurAn/Search/Result', [QurAnController::class, 'search_result'])->name('search_result');
 });

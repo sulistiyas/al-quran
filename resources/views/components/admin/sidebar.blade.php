@@ -60,9 +60,9 @@
                 </ul>
             </li>
             {{-- Quran --}}
-            <li class="{{ Request::routeIs('index_users') ? 'nav-item menu-open' : 'nav-item menu' }}">
-                <a href="#" class="{{ Request::routeIs('index_users') ? 'nav-link active' : 'nav-link' }}">
-                  <i class="fas fa-quran"></i>
+            <li class="{{ Request::routeIs('index_quran') || Request::routeIs('search_page') || Request::routeIs('search_result') ? 'nav-item menu-open' : 'nav-item menu' }}">
+                <a href="#" class="{{ Request::routeIs('index_quran') || Request::routeIs('search_page') || Request::routeIs('search_result') ? 'nav-link active' : 'nav-link' }}">
+                  <i class="nav-icon fas fa-quran"></i>
                   <p>
                     Qur'an Dictionary
                     <i class="right fas fa-angle-left"></i>
@@ -70,11 +70,17 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{ route('index_users') }}" class="{{ Request::routeIs('index_users') ? 'nav-link active' : 'nav-link' }}">
+                        <a href="{{ route('index_quran') }}" class="{{ Request::routeIs('index_quran') ? 'nav-link active' : 'nav-link' }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>User Data</p>
+                            <p>Database</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                      <a href="{{ route('search_page') }}" class="{{ Request::routeIs('search_page') || Request::routeIs('search_result') ? 'nav-link active' : 'nav-link' }}">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Search Page</p>
+                      </a>
+                  </li>
                 </ul>
             </li>
         </ul>

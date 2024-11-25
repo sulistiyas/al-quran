@@ -38,8 +38,23 @@
                                             @foreach ($result as $item_result)
                                                 <tr>
                                                     <td style="width: 150px">{{ $item_result->nama_latin }} <br> ({{ $item_result->jumlah_ayat }}), ayat {{ $item_result->nomor_ayat }}</td>
-                                                    <td>{{ $item_result->idn }}</td>
-                                                    <td>{{ $item_result->ar }}</td>
+                                                    <td>
+                                                        {{-- {{ $item_result->tr }} --}}
+                                                        @php
+                                                            $text = $item_result->tr;
+                                                            $word = $keywords;
+                                                            $text = preg_replace('#'. preg_quote($word) .'#i', '<span style="background-color: #F9F902;">\\0</span>', $text);
+                                                            echo $text;
+                                                        @endphp
+                                                    </td>
+                                                    <td>
+                                                        @php
+                                                            $text = $item_result->ar;
+                                                            $word = $keywords;
+                                                            $text = preg_replace('#'. preg_quote($word) .'#i', '<span style="background-color: #F9F902;">\\0</span>', $text);
+                                                            echo $text;
+                                                        @endphp
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

@@ -116,8 +116,10 @@
         }, 3000);
     }
 
-    recognition.onspeechend = function(){
+    recognition.onend = function(){
         recognition.stop();
+        const microphone = document.querySelector('.microphone');
+        microphone.classList.remove('recording');
     }
 
     recognition.onerror = function (){
@@ -154,3 +156,4 @@
         }
     });
 </script>
+

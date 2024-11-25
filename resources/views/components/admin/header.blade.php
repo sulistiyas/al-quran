@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="ar">
 <head>
-  {{-- <meta charset="utf-8"> --}}
-  <meta http-equiv="Content-Language" content="ar-sa">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+  {{-- <meta http-equiv="Content-Language" content="ar-sa">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> --}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Al-Qur'an - APP</title>
   <link rel="icon" href="{{ asset('assets/dist/img/AdminLTELogo.png') }}" type="image/gif" sizes="16x16">

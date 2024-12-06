@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('id_users')->nullable()->index('fk_search_history_to_users');
             $table->string('keyword');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

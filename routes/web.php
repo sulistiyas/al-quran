@@ -54,4 +54,5 @@ Route::middleware([
     Route::get('/QurAn/Search', [QurAnController::class, 'search_page'])->name('search_page');
     Route::get('/QurAn/Search/Result', [QurAnController::class, 'search_result'])->name('search_result');
     Route::get('/QurAn/Search/Result/History/{id}', [QurAnController::class, 'history_result'])->name('history_result');
+    Route::delete('/QurAn/Search/Result/History/Delete/{id}', [QurAnController::class, 'delete_history'])->name('delete_history');
 });

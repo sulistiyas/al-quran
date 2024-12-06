@@ -19,9 +19,10 @@ class QurAnController extends Controller
     {
         $history_data = DB::table('search_histories')
             ->where('id_users', '=', Auth::user()->id)
+            ->where('deleted_at', '=', NULL)
             ->orderBy('created_at', 'desc')
             ->limit('10')->get();
-        return view('layouts.QurAn.demo', ['history_data' => $history_data]);
+        return view('layouts.QurAn.search_index', ['history_data' => $history_data]);
     }
 
     public function search_result(Request $request)
@@ -73,5 +74,13 @@ class QurAnController extends Controller
             'updated_at'    => date('Y-m-d h:i:s')
         ]);
         return view('layouts.QurAn.search_result', ['result' => $data, 'keywords' => $ids]);
+    }
+
+    public function delete_history($ids)
+    {
+        $history_data = SearchHistory::where('id_search_history', '=', $ids)->first();
+        // dd($history_data);
+        $history_data->delete();
+        return redirect()->route('search_page');
     }
 }

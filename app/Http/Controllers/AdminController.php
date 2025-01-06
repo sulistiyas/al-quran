@@ -19,9 +19,10 @@ class AdminController extends Controller
 
     public function index_users()
     {
-        $user_data = DB::table('users')
-            ->join('detail_users', 'id_users', '=', 'users.id')
-            ->where('users.deleted_at', '=', Null)->get();
+        //disable ONLY_FULL_GROUP_BY
+        DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
+        $user_data = DB::select("select * from users s, detail_users ds group by s.id");
+        // dd($user_data);
         return view('layouts.admin.user.index', ['users_data' => $user_data]);
     }
 

@@ -34,16 +34,5 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
             'user_level' => '1'
         ]);
-        $get_id = DB::table('users')->select('id')->orderBy('id', 'asc')->get();
-        foreach ($get_id as $items) {
-            $id_users = $items->id;
-        }
-        return DetailUsers::create([
-            'id_users' => $id_users,
-            'phone_num' => $input['phone_num'],
-            'address' => $input['address'],
-            'created_at'   => date('Y-m-d'),
-            'updated_at'   => date('Y-m-d'),
-        ]);
     }
 }

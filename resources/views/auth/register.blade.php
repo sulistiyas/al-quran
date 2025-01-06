@@ -13,17 +13,6 @@
                 <x-label for="name" value="{{ __('Name') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
-            <br>
-            <div>
-                <x-label for="phone_num" value="{{ __('Phone Number') }}" />
-                <x-input id="phone_num" class="block mt-1 w-full" type="text" name="phone_num" :value="old('phone_num')" required autofocus autocomplete="phone_num" />
-            </div>
-            <br>
-            <div>
-                <x-label for="address" value="{{ __('Adress') }}" />
-                <x-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="address" />
-            </div>
-
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
